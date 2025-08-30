@@ -1,0 +1,62 @@
+# 🐱‍👻 GhostKitty StemSplitter Configuration
+# Advanced settings for power users
+
+[models]
+# Available Demucs models and their characteristics
+# htdemucs: Best balance of speed and quality (default)
+# htdemucs_ft: Fine-tuned version with improved quality but slower
+# mdx_extra: Alternative model with different separation characteristics
+
+default_model = "htdemucs"
+quality_model = "htdemucs_ft" 
+alternative_model = "mdx_extra"
+
+[devices]
+# Device preferences
+# auto: Automatically detect best device
+# cuda: NVIDIA GPU (if available)
+# mps: Apple Silicon GPU (M1/M2 Macs)
+# cpu: CPU processing (slower but always available)
+
+auto_detect = true
+prefer_gpu = true
+fallback_to_cpu = true
+
+[audio]
+# Audio processing settings
+supported_formats = [".mp3", ".wav", ".flac", ".m4a", ".aac", ".ogg", ".wma"]
+output_format = "wav"
+output_bitdepth = 24
+output_sample_rate = "original"  # or specific rate like 44100
+
+[output]
+# Output file naming and organization
+stem_names = {
+    0 = "drums",
+    1 = "bass", 
+    2 = "other",
+    3 = "vocals"
+}
+
+# Directory structure
+create_subdirs = true
+preserve_metadata = false
+
+[performance]
+# Performance optimization
+batch_size = 1
+num_workers = 4
+memory_efficient = true
+
+[ui]
+# User interface settings
+show_banner = true
+use_colors = true
+progress_bars = true
+verbose_logging = false
+
+[advanced]
+# Advanced options for experts
+overlap_ratio = 0.25
+segment_length = 10.0  # seconds
+apply_wiener_filter = false
